@@ -44,9 +44,9 @@ func handleTraffic(ctx context.Context, clashHost string, clashToken string) {
 func handleTracing(ctx context.Context, clashHost string, clashToken string) {
 	var clashUrl string
 	if clashToken == "" {
-		clashUrl = fmt.Sprintf("ws://%s/traffic", clashHost)
+		clashUrl = fmt.Sprintf("ws://%s/profile/tracing", clashHost)
 	} else {
-		clashUrl = fmt.Sprintf("ws://%s/traffic?token=%s", clashHost, clashToken)
+		clashUrl = fmt.Sprintf("ws://%s/profile/tracing?token=%s", clashHost, clashToken)
 	}
 	ch := dialWebsocketChan(ctx, clashUrl)
 	for buf := range ch {
